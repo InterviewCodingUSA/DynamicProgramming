@@ -18,20 +18,23 @@ public class Main {
         int[][] Lcs = new int[m + 1][ n + 1];
 
 
-        for (int i = 0; i <= str1.length; i++)
+        for (int i = 0; i <= str1.length; i++){
             for (int j = 0; j <= str2.length; j++)
             {
-                if (i == 0 || j == 0)
+                if (i == 0 || j == 0){
                     Lcs[i][ j] = 0;
-                    else if (str1[i - 1] == str2[j - 1])
-            {
-                Lcs[i][ j] = Lcs[i - 1][ j - 1] + 1;
-                //subs.Append(str1[i-1]);
-            }
-            else
-                Lcs[i][ j] = Math.max(Lcs[i - 1][ j], Lcs[i][ j - 1]);
-            }
+                }
+                else if (str1[i - 1] == str2[j - 1])
+                {
+                    Lcs[i][ j] = Lcs[i - 1][ j - 1] + 1;
+                    //subs.Append(str1[i-1]);
+                }
+                else{
+                    Lcs[i][ j] = Math.max(Lcs[i - 1][ j], Lcs[i][ j - 1]);
+                }
 
+            }
+        }
         System.out.println((Lcs[m][ n]));
     }
 
